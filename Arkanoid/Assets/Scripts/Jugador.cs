@@ -13,7 +13,12 @@ public class Jugador : MonoBehaviour
 
     private Vector2 direction;
 
+    Vector2 startPosition;
 
+    private void Start()
+    {
+        startPosition = transform.position;
+    }
 
     // Update is called once per frame
     void Update()
@@ -34,6 +39,13 @@ public class Jugador : MonoBehaviour
         }
 
         ribidbody2D.AddForce(direction * movespeed * Time.deltaTime * 100);
+      
 
+    }
+
+    public void ResetJugador()
+    {
+        transform.position = startPosition;
+        ribidbody2D.velocity = Vector2.zero;
     }
 }
